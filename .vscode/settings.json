@@ -1,0 +1,14 @@
+{
+  "cmake.configureOnOpen": true,
+  "cmake.buildBeforeRun": true,
+  "cmake.useCMakePresets": "always",
+  "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "clangd.arguments": [
+    "--background-index",
+    "--query-driver=**/c++,**/c++.exe,**/g++,**/g++.exe,**/clang++,**/clang++.exe,**/cc,**/cc.exe,**/gcc,**/gcc.exe,**/clang,**/clang.exe"
+  ],
+  "[cmake]": {
+    "editor.defaultFormatter": "cheshirekow.cmake-format"
+  }
+}
