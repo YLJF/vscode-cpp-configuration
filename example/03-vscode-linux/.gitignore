@@ -1,0 +1,4 @@
+/build/
+/CMakeUserPresets.json
+/CMakePresets.json.bak-*
+/.cache/

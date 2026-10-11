@@ -1,0 +1,119 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "ACME_BUILD_TOOLS": "ON",
+        "ACME_APP_LABEL": "team-demo"
+      }
+    },
+    {
+      "name": "gcc-ninja-debug",
+      "displayName": "GCC Ninja Debug",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "gcc-ninja-release",
+      "displayName": "GCC Ninja Release",
+      "inherits": "gcc-ninja-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "clang-ninja-debug",
+      "displayName": "Clang Ninja Debug",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "clang-ninja-release",
+      "displayName": "Clang Ninja Release",
+      "inherits": "clang-ninja-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "gcc-make-debug",
+      "displayName": "GCC Make Debug",
+      "inherits": "gcc-ninja-debug",
+      "generator": "Unix Makefiles"
+    },
+    {
+      "name": "gcc-make-release",
+      "displayName": "GCC Make Release",
+      "inherits": "gcc-make-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "clang-make-debug",
+      "displayName": "Clang Make Debug",
+      "inherits": "clang-ninja-debug",
+      "generator": "Unix Makefiles"
+    },
+    {
+      "name": "clang-make-release",
+      "displayName": "Clang Make Release",
+      "inherits": "clang-make-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "gcc-ninja-debug",
+      "configurePreset": "gcc-ninja-debug"
+    },
+    {
+      "name": "gcc-ninja-release",
+      "configurePreset": "gcc-ninja-release"
+    },
+    {
+      "name": "clang-ninja-debug",
+      "configurePreset": "clang-ninja-debug"
+    },
+    {
+      "name": "clang-ninja-release",
+      "configurePreset": "clang-ninja-release"
+    },
+    {
+      "name": "gcc-make-debug",
+      "configurePreset": "gcc-make-debug"
+    },
+    {
+      "name": "gcc-make-release",
+      "configurePreset": "gcc-make-release"
+    },
+    {
+      "name": "clang-make-debug",
+      "configurePreset": "clang-make-debug"
+    },
+    {
+      "name": "clang-make-release",
+      "configurePreset": "clang-make-release"
+    }
+  ]
+}

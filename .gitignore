@@ -2,3 +2,14 @@ build/
 compile_commands.json
 CMakeUserPresets.json
 .vscode/*.local.json
+
+# 构建产物与个人配置
+**/build/
+**/.cache/
+**/CMakeUserPresets.json
+**/CMakePresets.json.bak-*
+
+# 本地记录与备份
+/vsconfig/*备份*.md
+/vsconfig/VSCode 环境验证记录-*.md
+/example/README2.md
