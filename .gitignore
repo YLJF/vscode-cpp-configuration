@@ -10,6 +10,6 @@ CMakeUserPresets.json
 **/CMakePresets.json.bak-*
 
 # 本地记录与备份
-/vsconfig/*备份*.md
-/vsconfig/VSCode 环境验证记录-*.md
-/example/README2.md
+/基于CMake Tools环境配置指南/vsconfig/*备份*.md
+/基于CMake Tools环境配置指南/vsconfig/VSCode 环境验证记录-*.md
+/基于CMake Tools环境配置指南/example/README2.md

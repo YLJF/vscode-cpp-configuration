@@ -10,11 +10,11 @@
 
 | 任务 | 文档 |
 | --- | --- |
-| 在 Windows 上配置开发环境 | [Windows 开发环境配置指南](<vsconfig/VSCode C++ Windows 通用开发环境配置指南.md>) |
-| 在 Linux 上配置开发环境，或通过 SSH 远程开发 | [Linux 开发环境配置指南](<vsconfig/VSCode C++ Linux 通用开发环境配置指南.md>) |
-| 将配置接入已有 CMake 工程 | [已有工程接入教程与完整示例](example/README.md) |
-| 在另一台 Windows 电脑恢复环境 | [Windows 环境同步指南](<vssync/VSCode C++ 环境同步指南（Windows）.md>) |
-| 在本地或远程 Linux 环境恢复配置 | [Linux 环境同步指南](<vssync/VS Code C++ 环境同步指南（Linux）.md>) |
+| 在 Windows 上配置开发环境 | [Windows 开发环境配置指南](<基于CMake Tools环境配置指南/vsconfig/VSCode C++ Windows 通用开发环境配置指南.md>) |
+| 在 Linux 上配置开发环境，或通过 SSH 远程开发 | [Linux 开发环境配置指南](<基于CMake Tools环境配置指南/vsconfig/VSCode C++ Linux 通用开发环境配置指南.md>) |
+| 将配置接入已有 CMake 工程 | [已有工程接入教程与完整示例](<基于CMake Tools环境配置指南/example/README.md>) |
+| 在另一台 Windows 电脑恢复环境 | [Windows 环境同步指南](<基于CMake Tools环境配置指南/vssync/VSCode C++ 环境同步指南（Windows）.md>) |
+| 在本地或远程 Linux 环境恢复配置 | [Linux 环境同步指南](<基于CMake Tools环境配置指南/vssync/VS Code C++ 环境同步指南（Linux）.md>) |
 
 首次搭建环境时，先阅读对应系统的配置指南；工具准备好后，可运行下面的完整示例。接入自己的工程时，按接入教程保留原有目标、依赖、C++ 标准和构建选项，再合入所需配置。更换电脑或开发主机时，参考环境同步指南。
 
@@ -31,7 +31,7 @@
 | 远程开发 | Remote-SSH 连接 Linux 主机，在远程侧配置、构建和调试 |
 | 环境同步 | Settings Sync 同步编辑器配置，Git 同步源码与共享工程配置；工具链在目标主机安装 |
 
-主指南中的示例采用 C++20，`example/` 的已有工程示例采用 C++17，用于演示保留工程原有标准的接入过程。
+主指南中的示例采用 C++20，`基于CMake Tools环境配置指南/example/` 的已有工程示例采用 C++17，用于演示保留工程原有标准的接入过程。
 
 ## 运行完整示例
 
@@ -54,8 +54,8 @@ cd vscode-configuration
 
 | 系统 | 打开的工程目录 |
 | --- | --- |
-| Windows | `example/02-vscode-windows` |
-| Linux | `example/03-vscode-linux` |
+| Windows | `基于CMake Tools环境配置指南/example/02-vscode-windows` |
+| Linux | `基于CMake Tools环境配置指南/example/03-vscode-linux` |
 
 这些目录各自包含独立的 `CMakeLists.txt`、`CMakePresets.json` 和 `.vscode/` 配置。首次运行前，按实际工具链位置检查 clangd 的 `--query-driver` 匹配路径，以及所用调试器的路径设置。
 
@@ -79,19 +79,19 @@ cd vscode-configuration
 
 示例启用了 `cmake.buildBeforeRun`，F5 启动前会触发构建。Ninja 或 Make 根据依赖关系执行增量构建：通常只重新编译受影响的文件并链接需要更新的目标；没有变化时无需重新编译。
 
-若希望从原有工程开始亲手接入，按照 [接入教程](example/README.md) 复制 `example/01-existing-project`，再逐步添加配置。
+若希望从原有工程开始亲手接入，按照 [接入教程](<基于CMake Tools环境配置指南/example/README.md>) 复制 `基于CMake Tools环境配置指南/example/01-existing-project`，再逐步添加配置。
 
 ## 生成 CMake Presets 模板
 
 在仓库根目录执行以下命令，将模板生成到指定项目：
 
 ```sh
-cmake -DOUTPUT_DIR="<项目根目录>" -P ./vsconfig/tools/generate-cmake-presets.cmake
+cmake -DOUTPUT_DIR="<项目根目录>" -P "./基于CMake Tools环境配置指南/vsconfig/tools/generate-cmake-presets.cmake"
 ```
 
 将 `<项目根目录>` 连同尖括号替换为实际路径。脚本按运行主机选择 Windows 或 Linux 的 Make 生成器，生成 GCC / Clang、Ninja / Make、Debug / Release 共八组预设；名称包含生成器，例如 `gcc-ninja-debug`、`gcc-make-debug`。
 
-脚本生成 `CMakePresets.json`，项目目标、依赖和编辑器配置仍按指南设置。生成后可根据项目要求调整编译器、构建选项和预设组合。已有 `CMakePresets.json` 时脚本默认拒绝覆盖；已有工程应优先扩展原有预设。参数和文件维护方式见 [Windows 指南](<vsconfig/VSCode C++ Windows 通用开发环境配置指南.md>) 或 [Linux 指南](<vsconfig/VSCode C++ Linux 通用开发环境配置指南.md>)。
+脚本生成 `CMakePresets.json`，项目目标、依赖和编辑器配置仍按指南设置。生成后可根据项目要求调整编译器、构建选项和预设组合。已有 `CMakePresets.json` 时脚本默认拒绝覆盖；已有工程应优先扩展原有预设。参数和文件维护方式见 [Windows 指南](<基于CMake Tools环境配置指南/vsconfig/VSCode C++ Windows 通用开发环境配置指南.md>) 或 [Linux 指南](<基于CMake Tools环境配置指南/vsconfig/VSCode C++ Linux 通用开发环境配置指南.md>)。
 
 ## 自定义快捷键
 
@@ -109,24 +109,27 @@ cmake -DOUTPUT_DIR="<项目根目录>" -P ./vsconfig/tools/generate-cmake-preset
 
 ## 仓库结构
 
+配置指南、环境同步说明和完整接入示例统一放在 `基于CMake Tools环境配置指南/` 下，便于集中查阅。
+
 ```text
 vscode-configuration/
 ├── README.md
-├── vsconfig/                 # Windows / Linux 开发环境配置指南
-│   └── tools/                # Presets 生成脚本和模板
-├── vssync/                   # Windows / Linux 环境同步指南
-├── example/
-│   ├── README.md             # 已有 CMake 工程接入教程
-│   ├── 01-existing-project/  # 接入前的原有工程
-│   ├── 02-vscode-windows/    # Windows 完整接入结果
-│   ├── 03-vscode-linux/      # Linux 完整接入结果
-│   └── tools/               # 随接入示例提供的生成工具
-├── .vscode/                  # 根目录示例的 VS Code 配置
-├── CMakeLists.txt            # 根目录单目标示例，目标名为 test
-├── CMakePresets.json          # 根目录示例的预设
-└── src/                      # 根目录示例源码
+├── 基于CMake Tools环境配置指南/
+│   ├── vsconfig/                 # Windows / Linux 开发环境配置指南
+│   │   └── tools/                # Presets 生成脚本和模板
+│   ├── vssync/                   # Windows / Linux 环境同步指南
+│   └── example/
+│       ├── README.md             # 已有 CMake 工程接入教程
+│       ├── 01-existing-project/  # 接入前的原有工程
+│       ├── 02-vscode-windows/    # Windows 完整接入结果
+│       ├── 03-vscode-linux/      # Linux 完整接入结果
+│       └── tools/               # 随接入示例提供的生成工具
+├── .vscode/                      # 根目录示例的 VS Code 配置
+├── CMakeLists.txt                # 根目录单目标示例，目标名为 test
+├── CMakePresets.json             # 根目录示例的预设
+└── src/                          # 根目录示例源码
 ```
 
-根目录还保留一个单目标 `test` 示例。体验完整接入流程和多可执行目标调试时，按上面的步骤单独打开 `example/` 下对应系统的工程目录。
+根目录还保留一个单目标 `test` 示例。体验完整接入流程和多可执行目标调试时，按上面的步骤单独打开 `基于CMake Tools环境配置指南/example/` 下对应系统的工程目录。
 
 共享的源码、CMake 配置和编辑器项目配置纳入 Git；构建目录、编译数据库、本机 `CMakeUserPresets.json`、验证记录和备份由 `.gitignore` 排除。个人工具路径和 SSH 连接信息按实际环境配置。
