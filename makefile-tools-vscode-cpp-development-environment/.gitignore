@@ -2,6 +2,6 @@
 **/.cache/
 *.local.json
 
-# 编辑器临时文件
+# Editor temporary files
 *.swp
 *.swo

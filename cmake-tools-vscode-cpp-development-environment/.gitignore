@@ -1,0 +1,15 @@
+build/
+compile_commands.json
+CMakeUserPresets.json
+.vscode/*.local.json
+
+# Build outputs and personal configuration
+**/build/
+**/.cache/
+**/CMakeUserPresets.json
+**/CMakePresets.json.bak-*
+
+# Local records and backups
+/cmake-tools-configuration-guide/vsconfig/*backup*.md
+/cmake-tools-configuration-guide/vsconfig/VSCode-environment-validation-*.md
+/cmake-tools-configuration-guide/example/README2.md
