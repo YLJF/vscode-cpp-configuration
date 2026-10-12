@@ -1,0 +1,74 @@
+[
+  {
+    "key": "f4",
+    "command": "cmake.selectLaunchTarget",
+    "when": "cmake:enableFullFeatureSet"
+  },
+  {
+    "key": "f4",
+    "command": "makefile.setLaunchConfiguration",
+    "when": "makefile:fullFeatureSet && !cmake:enableFullFeatureSet"
+  },
+  {
+    "key": "f6",
+    "command": "cmake.cleanConfigure",
+    "when": "cmake:enableFullFeatureSet"
+  },
+  {
+    "key": "f6",
+    "command": "makefile.cleanConfigure",
+    "when": "makefile:fullFeatureSet && !cmake:enableFullFeatureSet"
+  },
+  {
+    "key": "f7",
+    "when": "!cmake:hideBuildCommand && cmake:enableFullFeatureSet",
+    "command": "cmake.build"
+  },
+  {
+    "key": "f7",
+    "command": "makefile.buildTarget",
+    "when": "makefile:fullFeatureSet && !cmake:enableFullFeatureSet"
+  },
+  {
+    "key": "shift+f7",
+    "when": "!cmake:hideBuildCommand && cmake:enableFullFeatureSet",
+    "command": "cmake.buildWithTarget"
+  },
+  {
+    "key": "shift+f7",
+    "command": "makefile.setBuildTarget",
+    "when": "makefile:fullFeatureSet && !cmake:enableFullFeatureSet"
+  },
+  {
+    "key": "shift+f5",
+    "command": "cmake.debugTarget",
+    "when": "!inDebugMode && inCMakeProject && !cmake:hideDebugCommand && cmake:enableFullFeatureSet"
+  },
+  {
+    "key": "shift+f5",
+    "command": "makefile.launchDebug",
+    "when": "makefile:fullFeatureSet && !cmake:enableFullFeatureSet && !inDebugMode"
+  },
+  {
+    "key": "shift+ctrl+f5",
+    "command": "cmake.launchTarget",
+    "when": "!inDebugMode && !cmake:hideDebugCommand && cmake:enableFullFeatureSet"
+  },
+  {
+    "key": "ctrl+shift+f5",
+    "command": "makefile.launchRun",
+    "when": "makefile:fullFeatureSet && !cmake:enableFullFeatureSet && !inDebugMode"
+  },
+  {
+    "key": "alt+s",
+    "command": "clangd.restart"
+  },
+  {
+    "key": "ctrl+k ctrl+a",
+    "command": "workbench.action.openSettingsJson"
+  },
+  {
+    "key": "ctrl+k ctrl+z",
+    "command": "workbench.action.openGlobalKeybindingsFile"
+  }
+]

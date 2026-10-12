@@ -1,0 +1,7 @@
+**/build/
+**/.cache/
+*.local.json
+
+# 编辑器临时文件
+*.swp
+*.swo

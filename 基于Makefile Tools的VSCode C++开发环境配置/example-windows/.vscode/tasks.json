@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Makefile: build active configuration",
+      "type": "process",
+      "command": "${config:makefile.makePath}",
+      "args": [
+        "-f",
+        "Makefile",
+        "CONFIG=${command:makefile.getConfiguration}",
+        "all",
+        "-j"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

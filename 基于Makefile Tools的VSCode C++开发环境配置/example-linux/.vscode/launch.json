@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Makefile / GDB",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${command:makefile.getLaunchTargetPath}",
+      "cwd": "${workspaceFolder}",
+      "args": [],
+      "preLaunchTask": "Makefile: build active configuration",
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Makefile / LLDB (CodeLLDB)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${command:makefile.getLaunchTargetPath}",
+      "cwd": "${workspaceFolder}",
+      "args": [],
+      "preLaunchTask": "Makefile: build active configuration",
+      "stopOnEntry": false,
+      "terminal": "integrated"
+    }
+  ]
+}

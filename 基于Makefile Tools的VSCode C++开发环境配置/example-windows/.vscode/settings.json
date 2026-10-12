@@ -1,0 +1,52 @@
+{
+    "makefile.makePath":  "mingw32-make",
+    "makefile.makeDirectory":  "${workspaceFolder}",
+    "makefile.makefilePath":  "${workspaceFolder}/Makefile",
+    "makefile.configurations":  [
+                                    {
+                                        "name":  "gcc-debug",
+                                        "makeArgs":  [
+                                                         "CONFIG=gcc-debug"
+                                                     ]
+                                    },
+                                    {
+                                        "name":  "gcc-release",
+                                        "makeArgs":  [
+                                                         "CONFIG=gcc-release"
+                                                     ]
+                                    },
+                                    {
+                                        "name":  "clang-debug",
+                                        "makeArgs":  [
+                                                         "CONFIG=clang-debug"
+                                                     ]
+                                    },
+                                    {
+                                        "name":  "clang-release",
+                                        "makeArgs":  [
+                                                         "CONFIG=clang-release"
+                                                     ]
+                                    }
+                                ],
+    "makefile.configureOnOpen":  false,
+    "makefile.configureOnEdit":  false,
+    "makefile.configureAfterCommand":  false,
+    "makefile.buildBeforeLaunch":  true,
+    "makefile.extensionOutputFolder":  "${workspaceFolder}/build/${configuration}/.makefile-tools",
+    "makefile.compileCommandsPath":  "${workspaceFolder}/build/${configuration}/compile_commands.json",
+    "C_Cpp.intelliSenseEngine":  "disabled",
+    "clangd.arguments":  [
+                             "--background-index",
+                             "--compile-commands-dir=${workspaceFolder}/build/${command:makefile.getConfiguration}",
+                             "--query-driver=**/mingw64/bin/gcc.exe,**/mingw64/bin/g++.exe,**/mingw64/bin/clang.exe,**/mingw64/bin/clang++.exe"
+                         ],
+    "[cpp]":  {
+                  "editor.defaultFormatter":  "llvm-vs-code-extensions.vscode-clangd",
+                  "editor.formatOnSave":  true
+              },
+    "makefile.defaultLaunchConfiguration":  {
+                                                "MIMode":  "gdb",
+                                                "miDebuggerPath":  "gdb",
+                                                "stopAtEntry":  false
+                                            }
+}
