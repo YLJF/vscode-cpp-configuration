@@ -11,7 +11,7 @@ Both approaches use clangd for language services and support debugging with GDB 
 
 ## Build and Debug in VS Code
 
-The screenshots below show the repository's Windows examples running with GCC and GDB. Follow the workflow from selecting a build configuration to inspecting local variables at a breakpoint.
+The screenshots below show the repository's Windows examples running with GCC and GDB. Follow the workflow from selecting a build configuration to inspecting local variables at a breakpoint. Local paths and account details have been redacted; `<project>` and `<toolchain>` represent the example folder and compiler installation.
 
 ### CMake Tools
 
