@@ -729,6 +729,7 @@ endif
 
 ```json
 {
+  "editor.inlayHints.enabled": "off",
   "makefile.makePath": "make",
   "makefile.makeDirectory": "${workspaceFolder}",
   "makefile.makefilePath": "${workspaceFolder}/Makefile",

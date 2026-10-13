@@ -628,6 +628,7 @@ endif
 
 ```json
 {
+  "editor.inlayHints.enabled": "off",
   "makefile.makePath": "mingw32-make",
   "makefile.makeDirectory": "${workspaceFolder}",
   "makefile.makefilePath": "${workspaceFolder}/Makefile",

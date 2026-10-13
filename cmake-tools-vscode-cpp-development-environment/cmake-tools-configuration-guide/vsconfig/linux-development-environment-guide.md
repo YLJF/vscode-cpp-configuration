@@ -951,6 +951,7 @@ The following is the generator script's default output and can be copied directl
 
 ```json
 {
+  "editor.inlayHints.enabled": "off",
   "cmake.useCMakePresets": "always",
   "cmake.configureOnOpen": false,
   "cmake.configureOnEdit": false,
